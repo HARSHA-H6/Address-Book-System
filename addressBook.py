@@ -35,6 +35,7 @@ class AddressBook:
         else:
             for contact in self.contacts_list:
                 print(contact)
+                print()
 
     # Create the findContact function
     def find_contacts(self,first_name, last_name):
@@ -66,7 +67,7 @@ class AddressBook:
             print("5.Phone Number")
             print("6.Email Id")
 
-            option_input = input("Enter the option")
+            option_input = input("Enter the option: ")
             
             option = option_input.isdigit() and int(option_input) or None
 
@@ -75,8 +76,7 @@ class AddressBook:
             
             else:
                 match option:
-                    case 1: contact.address = input("Enter the new address")
-
+                    case 1: contact.address = input("Enter the new address: ")
                     case 2: contact.city = input("Enter the new city: ")
                     case 3: contact.state = input("Enter the new state: ")
                     case 4: contact.pin = input("Enter the new pin: ")
@@ -84,4 +84,21 @@ class AddressBook:
                     case 6: contact.email = input("Enter the new email: ") 
 
                     case _ : print("Invalid choice \n Enter the valid option")
-                    
+    
+    # Use Case 4 delete feature is updated
+    def delete_contact(self):
+        
+        first_name = input("Enter the first name of the contact: ")
+        last_name = input("Enter the last name of the contact: ")
+
+        contact = self.find_contacts(first_name, last_name)
+
+        if contact is None:
+            print("Contact is not found!")
+        
+        else:
+            print("Contact Found")
+            for _ in self.contacts_list:
+                if contact in self.contacts_list:
+                    self.contacts_list.remove(contact)
+                    print("Contact is Deleted! ")

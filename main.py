@@ -13,7 +13,8 @@ while True:
           f"1.Add Contact",
           f"2.Display Contacts",
           f"3.Edit Contact",
-          f"4.Exit")
+          f"4.Delete Contact",
+          f"5.Exit", sep="\n")
     
     option = int(input("Enter the option: "))
     
@@ -26,7 +27,12 @@ while True:
         address_book.display_contacts()
 
     elif option ==3:
+        # Use Case 3 edit contact is added
         address_book.edit_contacts()
+    
+    elif option == 4:
+        # Use Case 4 delete option is added
+        address_book.delete_contact()
     else:
         # Step6: Option to Exit the while loop
         print("Thank you")
