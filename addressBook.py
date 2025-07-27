@@ -35,3 +35,53 @@ class AddressBook:
         else:
             for contact in self.contacts_list:
                 print(contact)
+
+    # Create the findContact function
+    def find_contacts(self,first_name, last_name):
+        for contact in self.contacts_list:
+            if contact.firstname == first_name and contact.lastname == last_name:
+                return contact
+            
+            else:
+                return None
+            
+    # Use Case 3 added the EditContact function
+
+    def edit_contacts(self):
+        
+        first_name = input("Enter the first name of the contact: ")
+        last_name = input("Enter the second name of the contact: ")
+
+        contact = self.find_contacts(first_name, last_name)
+
+        if contact is None:
+            print("No contact is found")
+        else:
+            print("Contact found! ")
+            print("\n Select the field you want to edit ")
+            print("1.Address")
+            print("2.City")
+            print("3.State")
+            print("4.Pin code")
+            print("5.Phone Number")
+            print("6.Email Id")
+
+            option_input = input("Enter the option")
+            
+            option = option_input.isdigit() and int(option_input) or None
+
+            if option is None:
+                print("You have entered the invalid option\n Enter the digit between 1 to 6")
+            
+            else:
+                match option:
+                    case 1: contact.address = input("Enter the new address")
+
+                    case 2: contact.city = input("Enter the new city: ")
+                    case 3: contact.state = input("Enter the new state: ")
+                    case 4: contact.pin = input("Enter the new pin: ")
+                    case 5: contact.phoneno = input("Enter the new phoneno: ") 
+                    case 6: contact.email = input("Enter the new email: ") 
+
+                    case _ : print("Invalid choice \n Enter the valid option")
+                    

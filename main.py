@@ -12,7 +12,8 @@ while True:
     print(f"Choose Options",
           f"1.Add Contact",
           f"2.Display Contacts",
-          f"3.Exit")
+          f"3.Edit Contact",
+          f"4.Exit")
     
     option = int(input("Enter the option: "))
     
@@ -23,7 +24,9 @@ while True:
     elif option == 2:
         # Step5: Calling the display_contacts() functions in the AddressBook
         address_book.display_contacts()
-    
+
+    elif option ==3:
+        address_book.edit_contacts()
     else:
         # Step6: Option to Exit the while loop
         print("Thank you")
