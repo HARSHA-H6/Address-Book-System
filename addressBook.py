@@ -108,3 +108,11 @@ class AddressBook:
                 if contact in self.contacts_list:
                     self.contacts_list.remove(contact)
                     print("Contact is Deleted! ")
+    
+    def search_city_state(self,location, search):
+        matched = []
+        for contact in self.contacts_list:
+            if (search == "city" and contact.city.lower() == location.lower() or (search == "state" and contact.state.lower() == location.lower())):
+                matched.append(contact)
+        
+        return matched

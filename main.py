@@ -10,7 +10,9 @@ while True:
     print("1. Add a new Address Book")
     print("2. Select an Address Book")
     print("3. Display all Address Books ")
-    print("4. Exit")
+    print("4. Search By City ")
+    print("5. Search By State ")
+    print("6. Exit")
 
     option_input = input("Enter Option: ")
     option = option_input.isdigit() and int(option_input) or None
@@ -72,6 +74,31 @@ while True:
                         print(book)
             
             case 4:
+                res = []
+                search = "city"
+                city = input("Enter the name of the city to search: ")
+                for book,abook in address_book.items():
+                    for contact in abook.search_city_state(city,search):
+                        res.append(contact)
+                
+                if len(res) !=0:
+                    for contact in res:
+                        print(contact)
+                        print()
+            
+            case 5: 
+                res = []
+                search = "state"
+                state = input("Enter the name of the state to search: ")
+                for book,abook in address_book.items():
+                    for contact in abook.search_city_state(state,search):
+                        res.append(contact)
+
+                if len(res) !=0:
+                    for contact in res:
+                        print(contact)
+                        print()
+            case 6:
                 print("Thank You ")
                 break
 
