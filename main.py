@@ -10,6 +10,8 @@ while True:
     print("1. Add a new Address Book")
     print("2. Select an Address Book")
     print("3. Display all Address Books ")
+
+    # Use case 7 and 8 are implemented to search by state and city
     print("4. Search By City ")
     print("5. Search By State ")
     print("6. Exit")
