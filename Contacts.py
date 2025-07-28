@@ -1,6 +1,6 @@
 class Contacts:
     """
-    Create a class Contacts that accepts
+    Step1: Create a class Contacts that accepts
     First Name, Last Name, Address, City and Contact Detatils
     """
     def __init__(self,firstname,lastname, address, city, state, pin, phoneno, email):

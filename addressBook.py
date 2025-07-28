@@ -11,6 +11,12 @@ class AddressBook:
         while True:
             self.firstname = input("Enter first Name: ")
             self.lastname = input("Enter last Name: ")
+            # UseCase 7: Check if Duplicate  Contact is added
+            for contact in self.contacts_list:
+                if contact.firstname == self.firstname and contact.lastname == self.lastname:
+                    print("This contact already exists! ")
+                    return
+                
             self.address = input("Enter the address: ")
             self.city = input("Enter the city: ")
             self.state = input("Enter the state: ")
