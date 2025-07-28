@@ -14,7 +14,9 @@ while True:
     # Use case 7 and 8 are implemented to search by state and city
     print("4. Search By City ")
     print("5. Search By State ")
-    print("6. Exit")
+    print("6. Number of Contacts living in the same City ")
+    print("7. Number of Contacts living in the same State")
+    print("8. Exit")
 
     option_input = input("Enter Option: ")
     option = option_input.isdigit() and int(option_input) or None
@@ -100,7 +102,34 @@ while True:
                     for contact in res:
                         print(contact)
                         print()
+
+            # Use Case 10: Feature to find the number of contact person in particular city
             case 6:
+                res = []
+                search = "city"
+                city = input("Enter the name of the city to search: ")
+                for book, abook in address_book.items():
+                    for contact in abook.search_city_state(city, search):
+                        res.append(contact)
+
+                print(f"The number of contacts existing with the city name {city} are {len(res)}")
+
+                if len(res) == 0:
+                    print(f"No contacts found with the city name {city}")
+            
+            # Use Case 10: Feature to find the number of contact person in particular state
+            case 7: 
+                res = []
+                search = "state"
+                state = input("Enter the name of the state to search: ")
+                for book,abook in address_book.items():
+                    for contact in abook.search_city_state(state, search):
+                        res.append(contact)
+                print(f"The number of contacts existing with the state name{state} are {len(res)}")
+                
+                if len(res) == 0:
+                    print(f"No contacts found with the state name {state}")
+            case 8:
                 print("Thank You ")
                 break
 
