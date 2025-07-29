@@ -17,7 +17,9 @@ while True:
     print("6. Number of Contacts living in the same City ")
     print("7. Number of Contacts living in the same State")
     print("8. Sort entries in address book alphabetically by name ")
-    print("9. Exit")
+    # Use case 12 implemented to sort the address book using city, state or pin
+    print("9. Sort the entries in Address Book using city, state or pincode")
+    print("10. Exit")
 
     option_input = input("Enter Option: ")
     option = option_input.isdigit() and int(option_input) or None
@@ -130,7 +132,7 @@ while True:
                 
                 if len(res) == 0:
                     print(f"No contacts found with the state name {state}")
-                    
+
             # Usecase 11 sort the adddress book based on the name 
             case 8:
                 name = input("Enter the name of the address book you want to sort: ")
@@ -140,6 +142,28 @@ while True:
                     print(f"No address book found with name {name}")
 
             case 9:
+                name = input("Enter the name of the address book you want to sort: ")
+                if name in address_book:
+                    select = address_book[name]
+                    print("\n Sort by:")
+                    print("1.City")
+                    print("2.State")
+                    print("3.Pin code")
+
+                    choice = int(input("Enter the option: "))
+
+                    if choice == 1:
+                        select.sort_contacts_by_field("city")
+                    elif choice ==2:
+                        select.sort_contacts_by_field("state")
+                    elif choice == 3:
+                        select.sort_contacts_by_field("pin")
+                    else:
+                        print("Enter the valid option..")
+                else:
+                    print(f"No book found with the name {name}")
+
+            case 10:
                 print("Thank You ")
                 break
 

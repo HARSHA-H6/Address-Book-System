@@ -123,3 +123,21 @@ class AddressBook:
         self.contacts_list.sort(key = lambda contact: (contact.firstname.lower(),contact.lastname.lower()))
         print("Contacts sorted alphabetically by name")
         self.display_contacts()
+    
+    # Use case 12 function to sort the address book based on the different fields
+    def sort_contacts_by_field(self,field):
+        if field.islower() == "city":
+            self.contacts_list.sort(key = lambda contact: (contact.city.lower()))
+        
+        elif field.lower() == "state":
+            self.contacts_list.sort(key = lambda contact: (contact.state.lower()))
+        
+        elif field.lower() == "pin":
+            self.contacts_list.sort(key= lambda contact: (contact.pin))
+        
+        if field.lower() not in ["city", "state", "pin"]:
+            print("Invalid field!, Please choose city state or pin")
+            return
+        
+        print(f"Contacts sorted by {field}")
+        self.display_contacts()
