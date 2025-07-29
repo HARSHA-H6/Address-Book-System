@@ -117,3 +117,9 @@ class AddressBook:
                 matched.append(contact)
         
         return matched
+    
+    # Use case 11 function to sort the address book based on the name
+    def sort_contacts_by_name(self):
+        self.contacts_list.sort(key = lambda contact: (contact.firstname.lower(),contact.lastname.lower()))
+        print("Contacts sorted alphabetically by name")
+        self.display_contacts()
